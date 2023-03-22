@@ -1,0 +1,16 @@
+name: Manual undeploy
+on:
+  workflow_dispatch:
+    inputs:
+      stage:
+        description: 'Stage to be undeployed'
+        required: true
+        default: 'dev'
+
+jobs:
+  undeploy:
+      name: Undeploy
+      runs-on: ubuntu-latest
+        - run: echo "Stage - $STAGE"
+          env:
+            STAGE: ${{ inputs.stage }}
